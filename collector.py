@@ -31,7 +31,7 @@ class Collector(object):
             probe_temp.add_metric(labels=[f'{self.firmware}'], value=m[1])
             probe_humidity.add_metric(labels=[f'{self.firmware}'], value=m[2])
         else:
-            self.logger('Nothing to return...')
+            self.logger.warn('Nothing to return...')
 
         yield probe_co2
         yield probe_temp
