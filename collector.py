@@ -4,28 +4,32 @@ class Collector(object):
     def __init__(self, scd30, logger):
         self.scd30 = scd30
         self.logger = logger
+        self.firmware = self.scd30.get_firmware_version()
 
     def collect(self):
         probe_co2 = GaugeMetricFamily(
             'probe_co2',
             'Show CO2 ppm metric',
+            labels=["firmware_version"],
         )
         probe_temp = GaugeMetricFamily(
             'probe_temp',
             'Show temp metric',
+            labels=["firmware_version"],
         )
         probe_humidity = GaugeMetricFamily(
             'probe_humidity',
             'Show humidity metric',
+            labels=["firmware_version"],
         )
 
         self.logger.debug('================ Collect data ==================')
 
         m = self.getMetrics()
         if m is not None:
-            probe_co2.add_metric(value=m[0])
-            probe_temp.add_metric(value=m[1])
-            probe_humidity.add_metric(value=m[2])
+            probe_co2.add_metric(labels=[self.firmware], value=m[0])
+            probe_temp.add_metric(labels=[self.firmware], value=m[1])
+            probe_humidity.add_metric(labels=[self.firmware], value=m[2])
         else:
             self.logger('Nothing to return...')
 
