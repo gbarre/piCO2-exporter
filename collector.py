@@ -1,8 +1,8 @@
 from prometheus_client.core import GaugeMetricFamily
 
 class Collector(object):
-    def __init__(self, sdc30, logger):
-        self.sdc30 = sdc30
+    def __init__(self, scd30, logger):
+        self.scd30 = scd30
         self.logger = logger
 
     def collect(self):
