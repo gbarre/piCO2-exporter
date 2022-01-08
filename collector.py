@@ -27,9 +27,9 @@ class Collector(object):
 
         m = self.getMetrics()
         if m is not None:
-            probe_co2.add_metric(labels=[self.firmware], value=m[0])
-            probe_temp.add_metric(labels=[self.firmware], value=m[1])
-            probe_humidity.add_metric(labels=[self.firmware], value=m[2])
+            probe_co2.add_metric(labels=[f'{self.firmware}'], value=m[0])
+            probe_temp.add_metric(labels=[f'{self.firmware}'], value=m[1])
+            probe_humidity.add_metric(labels=[f'{self.firmware}'], value=m[2])
         else:
             self.logger('Nothing to return...')
 
