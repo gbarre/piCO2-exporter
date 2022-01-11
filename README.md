@@ -101,4 +101,4 @@ scrape_configs:
 
 [See here](./grafana.json) for dashboard example.
 
-![](./doc/grafana.png)
+![grafana dashboard capture](./doc/grafana.png)
