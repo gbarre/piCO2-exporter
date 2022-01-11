@@ -45,6 +45,6 @@ class Collector(object):
             m = self.scd30.read_measurement()
             if m is not None:
                 self.logger.info(
-                    f"CO2: {m[0]:.2f}ppm, temp: {m[1]:.2f}'C, rh: {m[2]:.2f}%"
+                    f"CO2: {m[0]:.2f}ppm, temp: {m[1]:.2f}°C, rh: {m[2]:.2f}%"
                 )
         return m
