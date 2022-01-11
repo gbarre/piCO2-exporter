@@ -16,7 +16,7 @@ docker build -t pico2-exporter .
 ## Run
 
 ```sh
-docker run -d -p9983:9983 --device /dev/i2c-1 --name pico2-exporter pico2-exporter
+docker run -d -p9983:9983 --restart=unless-stopped --device /dev/i2c-1 --name pico2-exporter pico2-exporter
 # You might need to adapt /dev/i2c-1 port...
 ```
 
