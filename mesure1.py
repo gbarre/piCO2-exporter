@@ -1,3 +1,4 @@
+# Test script
 from scd30_i2c import SCD30
 import time
 
