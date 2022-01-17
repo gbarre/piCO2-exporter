@@ -113,7 +113,6 @@ scrape_configs:
 
 ![grafana dashboard capture](./doc/grafana.png)
 
-
 ## Add RTC module and surprise
 
 In order to keep my Raspberry Pi on time, I added a RTC DS1307 from [kubii](https://www.kubii.fr/cartes-extension-cameras-raspberry-pi/1927-ds1307-horloge-en-temps-reel-avec-batterie-kubii-3272496008007.html). The configuration is quite simple BUT beware, the pins RX and TX that thios module provide are not plugged on the GPIO 2/3 but on the GPIO 14/15 (TXD & RXD). So the connection of the SCD30 sensor can not be done "over" the RTC module. I've solved this problem with [2 Expansion Board 2 x 20-pin Strip Dual Male Header Double Row Straight GPIO Connector](https://www.amazon.fr/gp/product/B08C4S8NPH).
@@ -207,7 +206,15 @@ Finally, force updating time after boot by adding `sudo hwclock -s` just after t
 
 ## Screen configuration
 
-\#TODO
+According to screen documentation:
+
+```sh
+sudo rm -rf LCD-show
+git clone https://github.com/lcdwiki/LCD-show.git
+chmod -R 755 LCD-show
+cd LCD-show
+sudo ./MHS35-show
+```
 
 ## What does it Looks like...?
 
